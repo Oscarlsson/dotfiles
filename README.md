@@ -1,4 +1,8 @@
-dotfiles
+Dotfiles
 ========
+This is basiclly just a combination of different settings i have found on various places. 
 
-Mina dotfiles
+I use Solarized theme for both terminal (Dark) and vim (Light).
+
+xbindkeysrc needs package xautomation to work.
+
