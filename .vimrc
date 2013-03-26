@@ -15,6 +15,18 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 
+" Typos
+if has("user_commands")
+    command! -bang -nargs=? -complete=file E e<bang> <args>
+    command! -bang -nargs=? -complete=file W w<bang> <args>
+    command! -bang -nargs=? -complete=file Wq wq<bang> <args>
+    command! -bang -nargs=? -complete=file WQ wq<bang> <args>
+    command! -bang Wa wa<bang>
+    command! -bang WA wa<bang>
+    command! -bang Q q<bang>
+    command! -bang QA qa<bang>
+    command! -bang Qa qa<bang>
+endif
 
 " Longer history
 set history=1000
@@ -40,6 +52,13 @@ nmap <silent> <leader>s :set nolist!<CR>
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
 
+" syntastics
+let g:syntastic_check_on_open=1
+" let g:syntastic_python_checker="flake8"
+
+
+"" Add spelling when compiling tex-files
+autocmd FileType tex set spell
 
 " Solarized theme
 syntax enable

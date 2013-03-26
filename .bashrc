@@ -2,6 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+if [ -d "$HOME/.cabal/bin" ] ; then
+  PATH="$PATH:$HOME/.cabal/bin"
+fi
+
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;

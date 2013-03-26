@@ -6,6 +6,11 @@ fi
 # What is taking all my space?
 alias diskspace="du -S | sort -n -r |more"
 
+#Quick move
+alias cdskola="cd ~/Skola"
+alias cddev="cd ~/Development"
+
+
 # Extract - Found somewhere
 extract () {
    if [ -f $1 ] ; then
