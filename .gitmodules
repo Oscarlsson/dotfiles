@@ -21,4 +21,7 @@
 	url = https://github.com/ervandew/supertab.git
 [submodule ".vim/bundle/closetag"]
 	path = .vim/bundle/closetag
-	url = https://github.com/vim-scripts/closetag.vim.git
+    url = https://github.com/vim-scripts/closetag.vim.git
+[submodule ".solarized/gnome-terminal-colors-solarized"]
+    path = .solarized/gnome-terminal-colors-solarized
+    url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
