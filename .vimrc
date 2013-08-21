@@ -33,6 +33,16 @@ set history=1000
 
 set showcmd
 
+" NO ARROWS!!
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+
+" Now im using tabs
+set showtabline=2 
+imap ,t <Esc>:tabnew<CR>
+
 " Multiple buffers
 set hidden
 
