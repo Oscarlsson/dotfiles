@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/oscar/.vim'
-let g:netrw_dirhist_2='/usr/share/xsessions'
-let g:netrw_dirhist_3='/home/oscar/.config/gnome-session'
-let g:netrw_dirhist_4='/usr/share/icons/gnome'
-let g:netrw_dirhist_5='/home/oscar/.gnome2'
-let g:netrw_dirhist_6='/home/oscar/.config/gnome-session/sessions'
-let g:netrw_dirhist_7='/home/oscar/.gconf/apps/nm-applet'
-let g:netrw_dirhist_8='/home/oscar/.gconf/apps/evolution'
-let g:netrw_dirhist_9='/home/oscar/.config/gnome-session'
+let g:netrw_dirhist_cnt =0
