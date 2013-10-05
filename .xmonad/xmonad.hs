@@ -18,5 +18,4 @@ main = xmonad $ gnomeConfig {
   , normalBorderColor  = "#cccccc"
   , focusedBorderColor = "#3300ff"
   , manageHook       = myManageHook <+> manageHook gnomeConfig
-  , terminal = "gnome-terminal --hide-menubar"
   }
