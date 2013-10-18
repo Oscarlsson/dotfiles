@@ -14,8 +14,10 @@ myManageHook = composeAll [
 main = xmonad $ gnomeConfig {
   modMask            = mod4Mask
   , layoutHook       = smartBorders (layoutHook gnomeConfig)
+  , focusFollowsMouse   = False
   , borderWidth      = 2
   , normalBorderColor  = "#cccccc"
   , focusedBorderColor = "#3300ff"
   , manageHook       = myManageHook <+> manageHook gnomeConfig
+  , terminal = "gnome-terminal --hide-menubar"
   }
