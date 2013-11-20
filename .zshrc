@@ -82,6 +82,7 @@ alias gc='git commit'
 alias gd='git diff'
 alias go='git checkout '
 alias grm='git rm '
+alias grmd='git rm $(git ls-files --deleted)'
 alias got='git '
 alias get='git '
 
@@ -102,13 +103,25 @@ setopt EXTENDED_HISTORY
 # Share hist between shells
 setopt SHARE_HISTORY
 
+# Vim mode in terminal
+bindkey -v
+# keybindings - Behave properly
 bindkey -M viins '^[OH' beginning-of-line
 bindkey -M viins '^[OF' end-of-line
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
 
-# Vim mode in terminal
-bindkey -v
+bindkey -M vicmd "//" history-beginning-search-backward
+bindkey -M vicmd "??" history-beginning-search-forward
+# Delete line
+bindkey -M vicmd "q" push-line
+# Undo
+bindkey -M vicmd 'u' undo
+
+# Delete-button
+bindkey '\e[3~' delete-char
+bindkey -M viins '\C-i' complete-word
+
 
 function zle-keymap-select {
     VIMODE="${${KEYMAP/vicmd/ M:command}/(main|viins)/}"
