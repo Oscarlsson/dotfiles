@@ -86,6 +86,9 @@ alias grmd='git rm $(git ls-files --deleted)'
 alias got='git '
 alias get='git '
 
+alias which='nocorrect which'
+
+
 # dont bind processes to terminal
 setopt nohup
 
@@ -129,3 +132,5 @@ function zle-keymap-select {
 }
 
 zle -N zle-keymap-select
+
+export LD_LIBRARY_PATH=/usr/local/lib    
