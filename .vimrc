@@ -3,8 +3,10 @@ execute pathogen#infect()
 filetype plugin indent on
 
 " CloseTag
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako 
+let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako 
+source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " Tabstuff
 set mouse=a
@@ -30,7 +32,6 @@ endif
 
 " Longer history
 set history=1000
-
 set showcmd
 
 " NO ARROWS!!
@@ -50,6 +51,8 @@ set hidden
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TlistToggle<CR>
 let mapleader = ","
+nnoremap ,cd :cd %:p:h<CR>
+
 
 " Common dir for backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -66,9 +69,12 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:syntastic_check_on_open=1
 " let g:syntastic_python_checker="flake8"
 
-
 "" Add spelling when compiling tex-files
 autocmd FileType tex set spell
+
+"" Taglist for c++ c
+map <Leader>t : Tlist<CR>
+set tags=./tags,tags;
 
 " Solarized theme
 syntax enable

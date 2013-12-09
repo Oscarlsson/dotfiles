@@ -37,3 +37,12 @@
 [submodule ".vim/bundle/snipppets"]
 	path = .vim/bundle/snipppets
 	url = git@github.com:honza/vim-snippets.git
+[submodule ".vim/bundle/pyflakes"]
+	path = .vim/bundle/pyflakes
+	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule ".vim/bundle/taglist"]
+	path = .vim/bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule ".vim/bundle/autotag"]
+	path = .vim/bundle/autotag
+	url = git@github.com:vim-scripts/AutoTag.git
