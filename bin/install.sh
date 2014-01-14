@@ -8,7 +8,7 @@ sudo apt-get install curl zsh ctags
 
 dir=~/dotfiles
 backupdir=~/olddot
-files="bashrc bash_aliases vimrc vim ssh dircolors xmonad xsession xmodbar oh-my-zsh zshrc gitconfig "
+files="bashrc bash_aliases vimrc vim ssh/.config dircolors xmonad xsession xmodbar oh-my-zsh zshrc gitconfig "
 
 # Xinitrc -> xsession?
 # Gnome-session-file
