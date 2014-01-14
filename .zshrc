@@ -44,7 +44,7 @@ plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin
 
 # UTF8-attempt
 export LANG="en_US.utf8"
@@ -60,11 +60,13 @@ alias agr='sudo apt-get remove'
 alias agu='sudo apt-get update'
 alias acs='apt-cache search'
 
+# -i
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -i'
 alias la='ls -alh'
 
+# Locations
 alias documents='cd ~/Documents'
 alias downloads='cd ~/Downloads'
 alias desktop='cd ~/Desktop'
@@ -72,9 +74,11 @@ alias music='cd ~/Music'
 alias videos='cd ~/Videos'
 alias dev='cd ~/Dev'
 
+# Zshrc
 alias sz='source ~/.zshrc'
 alias ez='vim ~/.zshrc'
 
+# Git
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -88,6 +92,8 @@ alias get='git '
 
 alias which='nocorrect which'
 
+# python
+alias qipython='ipython qtconsole --pylab=inline --colors=linux'
 
 # dont bind processes to terminal
 setopt nohup
@@ -106,31 +112,31 @@ setopt EXTENDED_HISTORY
 # Share hist between shells
 setopt SHARE_HISTORY
 
-# Vim mode in terminal
-bindkey -v
-# keybindings - Behave properly
-bindkey -M viins '^[OH' beginning-of-line
-bindkey -M viins '^[OF' end-of-line
-bindkey -M viins '^r' history-incremental-search-backward
-bindkey -M vicmd '^r' history-incremental-search-backward
-
-bindkey -M vicmd "//" history-beginning-search-backward
-bindkey -M vicmd "??" history-beginning-search-forward
-# Delete line
-bindkey -M vicmd "q" push-line
-# Undo
-bindkey -M vicmd 'u' undo
-
-# Delete-button
-bindkey '\e[3~' delete-char
-bindkey -M viins '\C-i' complete-word
-
-
-function zle-keymap-select {
-    VIMODE="${${KEYMAP/vicmd/ M:command}/(main|viins)/}"
-    zle reset-prompt
-}
-
-zle -N zle-keymap-select
+## Vim mode in terminal
+#bindkey -v
+## keybindings - Behave properly
+#bindkey -M viins '^[OH' beginning-of-line
+#bindkey -M viins '^[OF' end-of-line
+#bindkey -M viins '^r' history-incremental-search-backward
+#bindkey -M vicmd '^r' history-incremental-search-backward
+#
+#bindkey -M vicmd "//" history-beginning-search-backward
+#bindkey -M vicmd "??" history-beginning-search-forward
+## Delete line
+#bindkey -M vicmd "q" push-line
+## Undo
+#bindkey -M vicmd 'u' undo
+#
+## Delete-button
+#bindkey '\e[3~' delete-char
+#bindkey -M viins '\C-i' complete-word
+#
+#
+#function zle-keymap-select {
+#    VIMODE="${${KEYMAP/vicmd/ M:command}/(main|viins)/}"
+#    zle reset-prompt
+#}
+#
+#zle -N zle-keymap-select
 
 export LD_LIBRARY_PATH=/usr/local/lib    
