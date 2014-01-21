@@ -12,6 +12,8 @@
     added = yellow
     changed = green
     untracked = cyan
+[push]
+	default = tracking
 [pull]
     default = current
 [branch]
