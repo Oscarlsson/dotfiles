@@ -44,7 +44,7 @@ plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:/home/lad/anaconda/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin
+export PATH=/home/lad/anaconda/bin:$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin
 # UTF8-attempt
 export LANG="en_US.utf8"
 
