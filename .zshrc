@@ -44,8 +44,7 @@ plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin
-
+export PATH=$PATH:/home/lad/anaconda/bin/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin
 # UTF8-attempt
 export LANG="en_US.utf8"
 
@@ -58,8 +57,9 @@ eval `dircolors ~/.dircolors`
 alias agi='sudo apt-get install'
 alias agr='sudo apt-get remove'
 alias agu='sudo apt-get update'
+alias agup='sudo apt-get upgrade'
 alias acs='apt-cache search'
-
+alias aupdate='sudo apt-get update && sudo apt-get dist-upgrade'
 # -i
 alias cp='cp -iv'
 alias mv='mv -iv'
