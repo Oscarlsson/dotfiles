@@ -14,8 +14,8 @@ files="bashrc bash_aliases vimrc vim dircolors oh-my-zsh zshrc zshrcwork gitconf
 mkdir -p $backupdir
 cd $dir
 
-#git submodule init
-#git submodule update
+git submodule init
+git submodule update
 
 # Create symlinks
 for file in $files; do
