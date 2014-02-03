@@ -45,8 +45,3 @@ alias qipython='ipython qtconsole --pylab=inline --colors=linux'
 alias hls='hadoop fs -ls'
 alias hrmr='hadoop fs -rm -r'
 alias ep='export PYTHONPATH="."'
-
-# ssh to spoticloud-machine
-alias sshdev='ssh -A -t jump1.sto.spotify.net ssh -Y -o ConnectTimeout=0 -o TCPKeepAlive=yes -o ServerAliveInterval=2 -A dev.lad.cloud.spotify.net'
-alias sshhayden='ssh -A -t jump1.sto.spotify.net ssh -Y -o ConnectTimeout=0 -o TCPKeepAlive=yes -o ServerAliveInterval=2 -A hayden.lon.spotify.net'
-alias sshjump='ssh -A jump1.sto.spotify.net'
