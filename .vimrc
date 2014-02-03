@@ -2,22 +2,25 @@
 execute pathogen#infect()
 filetype plugin indent on
 
+" Leaderkey
+let mapleader = ","
+
 " CloseTag
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako 
 let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako 
 source ~/.vim/bundle/closetag/plugin/closetag.vim
 
-" Tabstuff
 set mouse=a
 set number
+" Tabstuff
 set autoindent
 set expandtab
 set smarttab
 set tabstop=4
 set shiftwidth=4
 
-" Typos
+" Typo fixing
 if has("user_commands")
     command! -bang -nargs=? -complete=file E e<bang> <args>
     command! -bang -nargs=? -complete=file W w<bang> <args>
@@ -42,7 +45,7 @@ map <Down> <Nop>
 
 " Now im using tabs
 set showtabline=2 
-imap ,t <Esc>:tabnew<CR>
+map ,t <Esc>:tabnew<CR>
 
 " Multiple buffers
 set hidden
@@ -50,7 +53,6 @@ set hidden
 " Mappings
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :TlistToggle<CR>
-let mapleader = ","
 nnoremap ,cd :cd %:p:h<CR>
 
 
@@ -67,14 +69,14 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " syntastics
 let g:syntastic_check_on_open=1
-" let g:syntastic_python_checker="flake8"
+let g:syntastic_python_checker="flake8"
 
 "" Add spelling when compiling tex-files
 autocmd FileType tex set spell
 
 "" Taglist for c++ c
-map <Leader>t : Tlist<CR>
-set tags=./tags,tags;
+"map <Leader>ta : Tlist<CR>
+"set tags=./tags,tags;
 
 " Solarized theme
 syntax enable
