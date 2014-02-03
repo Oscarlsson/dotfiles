@@ -6,7 +6,7 @@
 
 dir=~/dotfiles
 backupdir=~/olddot
-files="bashrc bash_aliases vimrc vim dircolors oh-my-zsh zshrc zshrcwork gitconfig "
+files="bashrc bash_aliases vimrc vim dircolors oh-my-zsh zshrc zshrcwork gitconfig aliases"
 
 # Xinitrc -> xsession?
 # Gnome-session-file

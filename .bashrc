@@ -107,6 +107,12 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Aliases
+if [ -f ~/.aliases ]; then 
+    source ~/.aliases
+else
+    print "Not found"
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

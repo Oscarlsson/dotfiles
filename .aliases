@@ -1,0 +1,52 @@
+
+alias agi='sudo apt-get install'
+alias agr='sudo apt-get remove'
+alias agu='sudo apt-get update'
+alias agup='sudo apt-get upgrade'
+alias acs='apt-cache search'
+alias aupdate='sudo apt-get update && sudo apt-get dist-upgrade'
+
+alias ideb='sudo dpkg -i '
+
+# -i
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -i'
+alias la='ls -alh'
+
+# Locations
+alias documents='cd ~/Documents'
+alias downloads='cd ~/Downloads'
+alias desktop='cd ~/Desktop'
+alias music='cd ~/Music'
+alias videos='cd ~/Videos'
+alias dev='cd ~/Dev'
+
+# Zshrc
+alias sz='source ~/.zshrc'
+alias ez='vim ~/.zshrc'
+
+# Git
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias grm='git rm '
+alias grmd='git rm $(git ls-files --deleted)'
+alias got='git '
+alias get='git '
+
+# python
+alias qipython='ipython qtconsole --pylab=inline --colors=linux'
+
+# Hadoop stuff
+alias hls='hadoop fs -ls'
+alias hrmr='hadoop fs -rm -r'
+alias ep='export PYTHONPATH="."'
+
+# ssh to spoticloud-machine
+alias sshdev='ssh -A -t jump1.sto.spotify.net ssh -Y -o ConnectTimeout=0 -o TCPKeepAlive=yes -o ServerAliveInterval=2 -A dev.lad.cloud.spotify.net'
+alias sshhayden='ssh -A -t jump1.sto.spotify.net ssh -Y -o ConnectTimeout=0 -o TCPKeepAlive=yes -o ServerAliveInterval=2 -A hayden.lon.spotify.net'
+alias sshjump='ssh -A jump1.sto.spotify.net'
