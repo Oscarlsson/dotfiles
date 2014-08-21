@@ -27,7 +27,7 @@
     url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
 [submodule ".vim/bundle/snipmate"]
 	path = .vim/bundle/snipmate
-	url = git@github.com:garbas/vim-snipmate.git
+    url = https://github.com/garbas/vim-snipmate.git
 [submodule ".vim/bundle/tlib_vim"]
 	path = .vim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
@@ -36,16 +36,16 @@
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule ".vim/bundle/snipppets"]
 	path = .vim/bundle/snipppets
-	url = git@github.com:honza/vim-snippets.git
+    url = https://github.com/honza/vim-snippets.git
 [submodule ".vim/bundle/pyflakes"]
 	path = .vim/bundle/pyflakes
-	url = git://github.com/kevinw/pyflakes-vim.git
+    url = https://github.com/kevinw/pyflakes-vim.git
 [submodule ".vim/bundle/taglist"]
 	path = .vim/bundle/taglist
-	url = git://github.com/vim-scripts/taglist.vim.git
+    url = https://github.com/vim-scripts/taglist.vim.git
 [submodule ".vim/bundle/autotag"]
 	path = .vim/bundle/autotag
-	url = git@github.com:vim-scripts/AutoTag.git
+    url = https://github.com/vim-scripts/AutoTag.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/Oscarlsson/oh-my-zsh.git
