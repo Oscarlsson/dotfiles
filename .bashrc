@@ -21,12 +21,17 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=10000
 
-# check the window size after each command and, if necessary,
+# share history
+export PROMPT_COMMAND="history -a; history -n"
+
+ #check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -107,6 +112,12 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Aliases
+if [ -f ~/.aliases ]; then 
+    source ~/.aliases
+else
+    print "Not found"
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -121,3 +132,37 @@ fi
 
 # added by Anaconda 1.8.0 installer
 export PATH="/home/lad/anaconda/bin:$PATH"
+export TERM="xterm-256color"
+
+alias ta='tmux attach'
+alias tnew='tmux new'
+alias tls='tmux ls'
+
+
+[ -n "$TMUX" ] && export TERM=screen-256color
+
+function yarn_logs {
+    yarn logs -applicationId "$1" -appOwner ${2:-$USER} | grep "Traceback" -A ${3:-25} | tail -n ${3:-25}
+}
+_snakebite_complete()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    local IFS=$'\t\n'
+    if [[ $cur != /* ]] ; then
+        cur="/user/$(whoami)/$cur"
+    fi
+    last_root=$(echo $cur | grep -o "^/\([^/]*/\)*")
+    opts=$(snakebite complete $last_root)
+     if [[ ${cur} == * ]]; then
+        COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+        [[ $COMPREPLY = */ ]] && compopt -o nospace
+        return 0
+    fi
+}
+complete -F _snakebite_complete avro-read
+
+unset TMOUT
+source ~/theme.bash

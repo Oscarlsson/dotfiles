@@ -95,6 +95,8 @@ alias which='nocorrect which'
 # python
 alias qipython='ipython qtconsole --pylab=inline --colors=linux'
 
+alias ta="tmux --attach"
+#
 # dont bind processes to terminal
 setopt nohup
 
@@ -140,3 +142,4 @@ setopt SHARE_HISTORY
 #zle -N zle-keymap-select
 
 export LD_LIBRARY_PATH=/usr/local/lib    
+
