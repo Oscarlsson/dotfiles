@@ -1,5 +1,14 @@
 # Aliases #
 
+# Hadoop stuff
+alias hls='hadoop fs -ls'
+alias hrmr='hadoop fs -rm -r'
+alias ep='export PYTHONPATH="."'
+
+# ssh to spoticloud-machine
+#store if hop-ssh needed
+#alias sshdev='ssh -A -t XX ssh -Y -o ConnectTimeout=0 -o TCPKeepAlive=yes -o ServerAliveInterval=2 -A dev.server'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
