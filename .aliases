@@ -117,8 +117,11 @@ function yarn_logs {
 # MISC #
 export LD_LIBRARY_PATH=/usr/local/lib    
 WORKON_HOME='~/.virtualenvs'
-source /usr/local/bin/virtualenvwrapper.sh
 export PIP_VIRTUALENV_BASE=/home/lad/.virtualenvs
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin
 
