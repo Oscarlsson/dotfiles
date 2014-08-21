@@ -31,8 +31,6 @@ export PROMPT_COMMAND="history -a; history -n"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-
-
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
@@ -94,23 +92,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # Aliases
 if [ -f ~/.aliases ]; then 
@@ -130,20 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Anaconda 1.8.0 installer
-export PATH="/home/lad/anaconda/bin:$PATH"
-export TERM="xterm-256color"
-
-alias ta='tmux attach'
-alias tnew='tmux new'
-alias tls='tmux ls'
-
-
-[ -n "$TMUX" ] && export TERM=screen-256color
-
-function yarn_logs {
-    yarn logs -applicationId "$1" -appOwner ${2:-$USER} | grep "Traceback" -A ${3:-25} | tail -n ${3:-25}
-}
 _snakebite_complete()
 {
     local cur prev opts
@@ -164,5 +136,9 @@ _snakebite_complete()
 }
 complete -F _snakebite_complete avro-read
 
-unset TMOUT
-source ~/theme.bash
+# SSH-config completion
+if [[ -f $HOME/.ssh/config ]]; then
+        complete -W "$(grep '^Host ' $HOME/.ssh/config | sort -u | sed 's/^Host //')" ssh autossh mosh
+fi
+
+source ~/dotfiles/theme.bash

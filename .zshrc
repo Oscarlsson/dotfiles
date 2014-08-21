@@ -27,7 +27,7 @@ ZSH_THEME="blinks"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
@@ -44,59 +44,9 @@ plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin
-
-# UTF8-attempt
-export LANG="en_US.utf8"
-
-# Solarized dircolos
-eval `dircolors ~/.dircolors`
-
-# Aliases #
-
-# apt
-alias agi='sudo apt-get install'
-alias agr='sudo apt-get remove'
-alias agu='sudo apt-get update'
-alias acs='apt-cache search'
-
-# -i
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -i'
-alias la='ls -alh'
-
-# Locations
-alias documents='cd ~/Documents'
-alias downloads='cd ~/Downloads'
-alias desktop='cd ~/Desktop'
-alias music='cd ~/Music'
-alias videos='cd ~/Videos'
-alias dev='cd ~/Dev'
-
-# Zshrc
-alias sz='source ~/.zshrc'
-alias ez='vim ~/.zshrc'
-
-# Git
-alias gs='git status '
-alias ga='git add '
-alias gb='git branch '
-alias gc='git commit'
-alias gd='git diff'
-alias go='git checkout '
-alias grm='git rm '
-alias grmd='git rm $(git ls-files --deleted)'
-alias got='git '
-alias get='git '
 
 alias which='nocorrect which'
 
-# python
-alias qipython='ipython qtconsole --pylab=inline --colors=linux'
-
-alias ta="tmux --attach"
-#
 # dont bind processes to terminal
 setopt nohup
 
@@ -140,6 +90,8 @@ setopt SHARE_HISTORY
 #}
 #
 #zle -N zle-keymap-select
+#
 
-export LD_LIBRARY_PATH=/usr/local/lib    
-
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
