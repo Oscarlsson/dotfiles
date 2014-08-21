@@ -2,6 +2,8 @@ import XMonad
 import XMonad.Hooks.ManageHelpers
 import XMonad.Config.Gnome
 import XMonad.Layout.NoBorders
+import XMonad.Hooks.SetWMName
+
     
 myManageHook = composeAll [
     (className =? "Pidgin" <&&> (title =? "Pidgin" <||> title =? "Accounts")) --> doCenterFloat
@@ -20,4 +22,5 @@ main = xmonad $ gnomeConfig {
   , focusedBorderColor = "#3300ff"
   , manageHook       = myManageHook <+> manageHook gnomeConfig
   , terminal = "gnome-terminal --hide-menubar"
-  }
+  , startupHook = setWMName "LG3D" }
+
