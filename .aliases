@@ -1,0 +1,113 @@
+# Aliases #
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+#
+# apt
+alias agi='sudo apt-get install'
+alias agr='sudo apt-get remove'
+alias agu='sudo apt-get update'
+alias acs='apt-cache search'
+
+# -i
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -i'
+alias la='ls -alh'
+
+# Locations
+alias documents='cd ~/Documents'
+alias downloads='cd ~/Downloads'
+alias desktop='cd ~/Desktop'
+alias music='cd ~/Music'
+alias videos='cd ~/Videos'
+alias dev='cd ~/Dev'
+
+# Zshrc
+alias sz='source ~/.zshrc'
+alias ez='vim ~/.zshrc'
+
+# Git
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias grm='git rm '
+alias grmd='git rm $(git ls-files --deleted)'
+alias got='git '
+alias get='git '
+
+# python
+alias qipython='ipython qtconsole --pylab=inline --colors=linux'
+alias pythonnotebook='ipython notebook --no-browser > /dev/null 2>&1 & '
+
+# What is taking all my space?
+alias diskspace="du -S | sort -n -r |more"
+#
+#Quick move
+alias cddev="cd ~/Dev"
+alias mv='mv -i'
+#
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# 
+# Useful functions
+#
+# Extract - Found somewhere
+extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf $1    ;;
+           *.tar.gz)    tar xvzf $1    ;;
+           *.bz2)       bunzip2 $1     ;;
+           *.rar)       unrar x $1       ;;
+           *.gz)        gunzip $1      ;;
+           *.tar)       tar xvf $1     ;;
+           *.tbz2)      tar xvjf $1    ;;
+           *.tgz)       tar xvzf $1    ;;
+           *.zip)       unzip $1       ;;
+           *.Z)         uncompress $1  ;;
+           *.7z)        7z x $1        ;;
+           *)           echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+ }
+
+# Go up in dir, instead of cd ../..
+up(){
+  local d=""
+  limit=$1
+  for ((i=1 ; i <= limit ; i++))
+    do
+      d=$d/..
+    done
+  d=$(echo $d | sed 's/^\///')
+  if [ -z "$d" ]; then
+    d=..
+  fi
+  cd $d
+}
+
+# MISC #
+export LD_LIBRARY_PATH=/usr/local/lib    
+WORKON_HOME='~/.virtualenvs'
+source /usr/local/bin/virtualenvwrapper.sh
+export PIP_VIRTUALENV_BASE=/home/lad/.virtualenvs
+
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin
+
+# UTF8-attempt
+export LANG="en_US.utf8"
+
+# Solarized dircolos
+eval `dircolors ~/.dircolors`
+
+
