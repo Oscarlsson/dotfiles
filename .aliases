@@ -49,6 +49,7 @@ alias grm='git rm '
 alias grmd='git rm $(git ls-files --deleted)'
 alias got='git '
 alias get='git '
+alias gp='git push '
 
 # python
 alias qipython='ipython qtconsole --pylab=inline --colors=linux'
