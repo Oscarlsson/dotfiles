@@ -1,6 +1,6 @@
 [user]
 	name = Oscar Carlsson
-	email = ocarlsson3@gmail.com
+	email = lad@spotify.com
 [core]
     editor = vim
 [color]
@@ -21,7 +21,7 @@
     fl = log -u
     st = status
     cl = clone
-    ci = commit
+    ci = commit -v
     co = checkout
     br = branch
     diff = diff --word-diff
