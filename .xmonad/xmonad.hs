@@ -3,8 +3,8 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Config.Gnome
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.ICCCMFocus (takeTopFocus) 
 
-    
 myManageHook = composeAll [
     (className =? "Pidgin" <&&> (title =? "Pidgin" <||> title =? "Accounts")) --> doCenterFloat
   , (className =? "Pidgin") --> doShift "3"
@@ -22,5 +22,6 @@ main = xmonad $ gnomeConfig {
   , focusedBorderColor = "#3300ff"
   , manageHook       = myManageHook <+> manageHook gnomeConfig
   , terminal = "gnome-terminal --hide-menubar"
+  , logHook = takeTopFocus
   , startupHook = setWMName "LG3D" }
 
