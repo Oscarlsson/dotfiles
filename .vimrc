@@ -1,21 +1,11 @@
-" Use pathogen
-execute pathogen#infect()
-filetype plugin indent on
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" CloseTag
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako 
-let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako 
-source ~/.vim/bundle/closetag/plugin/closetag.vim
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" Tabstuff
-set mouse=a
-set number
-set autoindent
-set expandtab
-set smarttab
-set tabstop=4
-set shiftwidth=4
+let mapleader = ","
 
 " Typos
 if has("user_commands")
@@ -30,59 +20,58 @@ if has("user_commands")
     command! -bang Qa qa<bang>
 endif
 
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+set laststatus=2
+let g:airline_powerline_fonts=1
+
+Plugin 'Raimondi/delimitMate'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+
+Bundle 'scrooloose/nerdtree'
+nnoremap <Leader>t :NERDTreeToggle<CR>
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeDirArrows=0
+
+
+Bundle 'kien/ctrlp.vim'
+nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+
+" Visual
+Plugin 'altercation/vim-colors-solarized'
+syntax enable
+set number
+set t_Co=16
+set background=dark
+let g:solarized_termcolors=16
+let g:solarized_termtrans=0
+colorscheme solarized
+
 " Longer history
-set history=1000
+set history=1001
 set showcmd
 
-" NO ARROWS!!
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
+" Tabstuff
+set autoindent
+set expandtab
+set smarttab
+set smartcase
+set smartindent
+set tabstop=2
+set shiftwidth=2
 
-" Now im using tabs
-set showtabline=2 
-imap ,t <Esc>:tabnew<CR>
+autocmd FileType python set tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
+
+" Config
+set noswapfile
 " Multiple buffers
 set hidden
 
-" Mappings
-nmap <silent> <F2> :NERDTreeToggle<CR>
-nmap <silent> <F3> :TlistToggle<CR>
-let mapleader = ","
-nnoremap ,cd :cd %:p:h<CR>
-
-
-" Common dir for backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" toggle whitespaces
-" set listchars=tab:>-,trail:·,eol:$
-nmap <silent> <leader>s :set nolist!<CR>
-
-" Supertab
-let g:SuperTabDefaultCompletionType = "context"
-
-" syntastics
-let g:syntastic_check_on_open=1
-" let g:syntastic_python_checker="flake8"
-
-"" Add spelling when compiling tex-files
-autocmd FileType tex set spell
-
-"" Taglist for c++ c
-map <Leader>t : Tlist<CR>
-set tags=./tags,tags;
-
-" Solarized theme
-syntax enable
-set t_Co=16
-let g:solarized_termcolors=16
-set background=light
-colorscheme solarized
-
-" Syntax hiveql
-au BufNewFile,BufRead *.hql set filetype=sql
-
+call vundle#end()            " required
+filetype plugin indent on    " required
