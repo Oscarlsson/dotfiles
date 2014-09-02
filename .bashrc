@@ -21,10 +21,13 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=10000
 
-# check the window size after each command and, if necessary,
+# share history
+export PROMPT_COMMAND="history -a; history -n"
+
+ #check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
@@ -89,24 +92,18 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+# Aliases
+if [ -f ~/.aliases ]; then 
+    source ~/.aliases
+else
+    print "Not found"
 fi
-
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -119,5 +116,29 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# added by Anaconda 1.8.0 installer
-export PATH="/home/lad/anaconda/bin:$PATH"
+_snakebite_complete()
+{
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    local IFS=$'\t\n'
+    if [[ $cur != /* ]] ; then
+        cur="/user/$(whoami)/$cur"
+    fi
+    last_root=$(echo $cur | grep -o "^/\([^/]*/\)*")
+    opts=$(snakebite complete $last_root)
+     if [[ ${cur} == * ]]; then
+        COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+        [[ $COMPREPLY = */ ]] && compopt -o nospace
+        return 0
+    fi
+}
+complete -F _snakebite_complete avro-read
+
+# SSH-config completion
+if [[ -f $HOME/.ssh/config ]]; then
+        complete -W "$(grep '^Host ' $HOME/.ssh/config | sort -u | sed 's/^Host //')" ssh autossh mosh
+fi
+
+source ~/dotfiles/theme.bash
