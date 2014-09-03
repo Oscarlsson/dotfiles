@@ -1,0 +1,95 @@
+set nocompatible
+
+" Enable Vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+" Typos
+if has("user_commands")
+    command! -bang -nargs=? -complete=file E e<bang> <args>
+    command! -bang -nargs=? -complete=file W w<bang> <args>
+    command! -bang -nargs=? -complete=file Wq wq<bang> <args>
+    command! -bang -nargs=? -complete=file WQ wq<bang> <args>
+    command! -bang Wa wa<bang>
+    command! -bang WA wa<bang>
+    command! -bang Q q<bang>
+    command! -bang QA qa<bang>
+    command! -bang Qa qa<bang>
+endif
+
+" Longer history
+set history=1000
+set showcmd
+
+""
+" Bundles
+Bundle 'gmarik/vundle'
+
+" Features
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'godlygeek/tabular'
+Bundle 'Raimondi/delimitMate'
+Bundle 'bling/vim-airline'
+
+" Colorscheme
+Bundle 'altercation/vim-colors-solarized'
+syntax enable
+set t_Co=16
+set background=dark
+let g:solarized_termtrans=0
+let g:solarized_termcolors=16
+colorscheme solarized
+
+
+" Config
+set smartcase
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
+set nobackup
+set nowritebackup
+set noswapfile
+set scrolloff=5
+set cursorline
+set number
+set timeoutlen=175
+
+set showtabline=2 
+imap ,t <Esc>:tabnew<CR>
+
+let mapleader = ","
+nnoremap <Leader>t :NERDTreeToggle<CR>
+nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+
+" Autocommands
+au BufNewFile,BufRead *.hql set filetype=sql
+
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['java', 'python'] }
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+
+" Markdown
+let g:vim_markdown_folding_disabled=1
+au FileType markdown setlocal textwidth=74
+au FileType markdown setlocal formatexpr=
+au FileType markdown setlocal formatprg=fold\ -w\ 79
+
+" Ctrl-P
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*.png,*.jpg,*.jpeg,*.gif,*.bmp
+set wildignore+=*/node_modules/*,*/bower_components/*
+set wildignore+=*/.git/*
+
+" NERDTree
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeDirArrows=0
+
+" airline
+let g:airline_powerline_fonts=1

@@ -1,5 +1,5 @@
 [submodule ".solarized/gnome-terminal-colors-solarized"]
-    path = .solarized/gnome-terminal-colors-solarized
+    path = solarized/gnome-terminal-colors-solarized
     url = https://github.com/sigurdga/gnome-terminal-colors-solarized.git
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh

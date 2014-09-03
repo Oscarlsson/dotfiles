@@ -1,0 +1,35 @@
+#!/bin/sh
+
+DOTFILES_FOLDER=~/poscar-dotfiles/xorg
+
+xrdb -merge $DOTFILES_FOLDER/Xresources
+xrdb -merge $DOTFILES_FOLDER/solarized/solarized
+
+xsetroot -cursor_name left_ptr
+xsetroot -solid "#002b36"
+
+setxkbmap -I $DOTFILES_FOLDER/my-keyboard mykeyboard -print\
+  | xkbcomp -I$DOTFILES_FOLDER/my-keyboard - $DISPLAY > /dev/null 2>&1
+
+# power saving off
+xset -dpms &
+xset s noblank &
+xset s off &
+
+# merge clipboards
+autocutsel &
+autocutsel -s PRIMARY &
+
+# rxvt daemon
+urxvtd -q -f -o
+
+# autohide mouse cursor
+unclutter -root -idle 1&
+
+# run notification daemon
+/usr/lib/notify-osd/notify-osd &
+
+# run ipython notebook server
+ipython notebook --no-browser > /dev/null 2>&1 &
+
+exec xmonad

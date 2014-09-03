@@ -1,5 +1,5 @@
 if [-f ~/.Xmodmap ]; then
     xmodmap ~/.Xmodmap
 fi
+[[ -f ~/.Xresources ]] && xrdb ~/.Xresources
 exec gnome-session --session xmonad-gnome "$@"
-xlux.sh&
