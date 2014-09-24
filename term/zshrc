@@ -47,7 +47,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias which='nocorrect which'
 
-
 # dont bind processes to terminal
 setopt nohup
 
@@ -96,4 +95,3 @@ setopt SHARE_HISTORY
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
-#

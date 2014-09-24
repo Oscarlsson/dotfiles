@@ -4,3 +4,9 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/Oscarlsson/oh-my-zsh.git
+[submodule ".solarized_mac"]
+	path = .solarized_mac
+	url = git@github.com:altercation/solarized.git
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = .vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git

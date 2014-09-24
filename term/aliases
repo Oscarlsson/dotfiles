@@ -1,5 +1,14 @@
 # Aliases #
 
+# Hadoop stuff
+alias hls='hadoop fs -ls'
+alias hrmr='hadoop fs -rm -r'
+alias ep='export PYTHONPATH="."'
+
+# ssh to spoticloud-machine
+#store if hop-ssh needed
+#alias sshdev='ssh -A -t XX ssh -Y -o ConnectTimeout=0 -o TCPKeepAlive=yes -o ServerAliveInterval=2 -A dev.server'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -40,6 +49,7 @@ alias grm='git rm '
 alias grmd='git rm $(git ls-files --deleted)'
 alias got='git '
 alias get='git '
+alias gp='git push '
 
 # python
 alias qipython='ipython qtconsole --pylab=inline --colors=linux'
@@ -52,6 +62,11 @@ alias diskspace="du -S | sort -n -r |more"
 alias cddev="cd ~/Dev"
 alias mv='mv -i'
 #
+# Tmux
+alias ta='tmux attach'
+alias tnew='tmux new'
+alias tls='tmux ls'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -96,11 +111,18 @@ up(){
   cd $d
 }
 
+function yarn_logs {
+    yarn logs -applicationId "$1" -appOwner ${2:-$USER} | grep "Traceback" -A ${3:-25} | tail -n ${3:-25}
+}
+
 # MISC #
 export LD_LIBRARY_PATH=/usr/local/lib    
 WORKON_HOME='~/.virtualenvs'
-source /usr/local/bin/virtualenvwrapper.sh
 export PIP_VIRTUALENV_BASE=/home/lad/.virtualenvs
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin
 
@@ -110,4 +132,7 @@ export LANG="en_US.utf8"
 # Solarized dircolos
 eval `dircolors ~/.dircolors`
 
+export TERM="xterm-256color"
+[ -n "$TMUX" ] && export TERM=screen-256color
+unset TMOUT
 
