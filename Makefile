@@ -1,9 +1,10 @@
-all: ycm term git xmonad
+all: ycm term git xmonad 
 vim: ~/.vimrc ~/.vim/bundle/vundle ~/.vim/bundle/install
 ycm: vim ~/.vim/bundle/YouCompleteMe
-term: ~/.zshrc ~/.bashrc ~/.aliases ~/.Xmodmap ~/.xsession ~/.oh-my-zsh ~/.dircolors
+term: ~/.zshrc ~/.bashrc ~/.aliases ~/.Xmodmap ~/.xsession ~/.oh-my-zsh ~/.dircolors ssh
 xmonad: ~/.xmonad
 git: ~/.gitconfig
+ssh: ~/.ssh.rc
 
 ~/.oh-my-zsh:
 	ln -s $(PWD)/oh-my-zsh $@
@@ -49,3 +50,7 @@ git: ~/.gitconfig
 
 ~/.vim/bundle/YouCompleteMe: ~/.vim/bundle/install
 	cd ~/.vim/bundle/YouCompleteMe && ./install.sh
+
+# ssh
+~/.ssh.rc: 
+	ln -s $(PWD)/ssh/rc $@	
