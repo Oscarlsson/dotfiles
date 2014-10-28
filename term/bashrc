@@ -141,4 +141,4 @@ if [[ -f $HOME/.ssh/config ]]; then
         complete -W "$(grep '^Host ' $HOME/.ssh/config | sort -u | sed 's/^Host //')" ssh autossh mosh
 fi
 
-source ~/dotfiles/theme.bash
+source ~/.theme.bash
