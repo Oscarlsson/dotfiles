@@ -1,10 +1,10 @@
 all: ycm term git xmonad 
 vim: ~/.vimrc ~/.vim/bundle/vundle ~/.vim/bundle/install
 ycm: vim ~/.vim/bundle/YouCompleteMe
-term: ~/.zshrc ~/.bashrc ~/.aliases ~/.Xmodmap ~/.xsession ~/.oh-my-zsh ~/.dircolors ssh
+term: ~/.zshrc ~/.bashrc ~/.aliases ~/.Xmodmap ~/.xsession ~/.oh-my-zsh ~/.dircolors ssh ~/.theme.bash
 xmonad: ~/.xmonad
 git: ~/.gitconfig
-ssh: ~/.ssh.rc
+ssh: ~/.ssh/rc
 
 ~/.oh-my-zsh:
 	ln -s $(PWD)/oh-my-zsh $@
@@ -31,13 +31,16 @@ ssh: ~/.ssh.rc
 ~/.Xmodmap:
 	ln -s $(PWD)/term/Xmodmap	$@
 
+~/.theme.bash:
+	ln -s $(PWD)/term/theme.bash $@
+
 # XMONAD
 ~/.xsession:
 	ln -s $(PWD)/term/xsession $@
 
 # VIM
 ~/.vimrc: 
-	ln -s $(PWD)/vim/.vimrc $@
+	ln -s $(PWD)/vim/vimrc $@
 
 ~/.vim/bundle/vundle:
 	git clone git://github.com/gmarik/vundle $@
@@ -52,5 +55,5 @@ ssh: ~/.ssh.rc
 	cd ~/.vim/bundle/YouCompleteMe && ./install.sh
 
 # ssh
-~/.ssh.rc: 
+~/.ssh/rc: 
 	ln -s $(PWD)/ssh/rc $@	
