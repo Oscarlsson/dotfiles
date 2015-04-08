@@ -27,6 +27,7 @@ set showcmd
 Bundle 'gmarik/vundle'
 
 " Features
+Plugin 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
@@ -93,3 +94,10 @@ let g:NERDTreeDirArrows=0
 
 " airline
 let g:airline_powerline_fonts=1
+
+" whitespace
+nmap <silent> <leader>s :set nolist!<CR>
+
+" show when going over column 101
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%101v.\+/
