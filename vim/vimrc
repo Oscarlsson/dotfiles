@@ -98,6 +98,9 @@ let g:airline_powerline_fonts=1
 " whitespace
 nmap <silent> <leader>s :set nolist!<CR>
 
+" backspace
+set backspace=indent,eol,start
+
 " show when going over column 101
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%101v.\+/

@@ -1,19 +1,31 @@
-Host burken
-    HostName burken.oscarlsson.se
-    Port 1908
-    User oscar
-
-
-Host school
-    HostName remote2.student.chalmers.se
-    User coscar
-
+Host vb
+    HostName 192.168.56.10
+Host dev
+    HostName devSqueeze.lad.cloud.spotify.net
+    ForwardAgent yes
+Host edgenode
+    HostName lon2-edgenode-a6.lon2.spotify.net
+    ForwardAgent yes
+Host jumphost
+    HostName  lon-jumphost-a1.lon.spotify.net
+    ForwardAgent yes
+Host graphedge
+    HostName lon2-graphdata-a1.lon.spotify.net
+    ForwardAgent yes
+Host kung
+    HostName kung.lon.spotify.net
+    ForwardAgent yes
 Host irc
-    HostName odsod.com
-    User lad
+    Hostname irc.oscarlsson.se
+    User pi
+    PermitLocalCommand yes
+    LocalCommand ~/notifysend_irssi.sh
 
+# clone repos with "git clone git:playlist4"
+Host git
+     HostName git.spotify.net
 
-Host pi 
-    HostName pi.oscarlsson.se 
-    Port 1908
-    User oscar
+# clone repos with "git clone ghe:monitoring/riemann-rules"
+Host ghe
+     HostName ghe.spotify.net
+     User git

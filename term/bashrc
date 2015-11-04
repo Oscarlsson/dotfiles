@@ -6,6 +6,9 @@ if [ -d "$HOME/.cabal/bin" ] ; then
   PATH="$PATH:$HOME/.cabal/bin"
 fi
 
+if [ -d "$HOME/anaconda" ] ; then
+  PATH="$HOME/anaconda/bin:$PATH"
+fi
 
 # If not running interactively, don't do anything
 case $- in
@@ -88,7 +91,7 @@ fi
 if [ -f ~/.aliases ]; then 
     source ~/.aliases
 else
-    print "Not found"
+    print "No aliases found"
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -127,7 +130,6 @@ if [[ -f $HOME/.ssh/config ]]; then
         complete -W "$(grep '^Host ' $HOME/.ssh/config | sort -u | sed 's/^Host //')" ssh autossh mosh
 fi
 
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/games:/var/lib/gems/1.8/bin:/opt/dell/srvadmin/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/home/lad/Dev/abtesting/bin/:~/Dev/abtesting/bin/
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -139,5 +141,6 @@ HISTSIZE=100000
 HISTFILESIZE=10000
 # share history
 export PROMPT_COMMAND="history -a; history -n"
+
 
 source ~/.theme.bash

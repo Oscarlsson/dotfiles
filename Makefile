@@ -1,10 +1,12 @@
 all: ycm term git xmonad 
-vim: ~/.vimrc ~/.vim/bundle/vundle ~/.vim/bundle/install
+box: ycm term git ~/.tmux.conf
 ycm: vim ~/.vim/bundle/YouCompleteMe
-term: ~/.zshrc ~/.bashrc ~/.aliases ~/.Xmodmap ~/.xsession ~/.oh-my-zsh ~/.dircolors ssh ~/.theme.bash
-xmonad: ~/.xmonad
+vim: ~/.vimrc ~/.vim/bundle/vundle ~/.vim/bundle/install
+term: ~/.zshrc ~/.bashrc ~/.aliases  ~/.xsession ~/.oh-my-zsh ~/.dircolors ssh ~/.theme.bash git
+xmonad: ~/.xmonad 
+xmodmap: ~/.Xmodmap
 git: ~/.gitconfig
-ssh: ~/.ssh/rc
+ssh: ~/.ssh/rc ~/.ssh/config
 
 ~/.oh-my-zsh:
 	ln -s $(PWD)/oh-my-zsh $@
@@ -13,7 +15,7 @@ ssh: ~/.ssh/rc
 	ln -s $(PWD)/xmonad $@
 
 ~/.gitconfig:
-	ln -s $(PWD)/git/gitconfig $@
+	ln -s $(PWD)/term/gitconfig $@
 
 # TERM
 ~/.zshrc:
@@ -21,6 +23,9 @@ ssh: ~/.ssh/rc
 
 ~/.bashrc:
 	ln -s $(PWD)/term/bashrc $@
+
+~/.tmux.conf:
+	ln -s $(PWD)/term/tmux.conf $@
 
 ~/.aliases:
 	ln -s $(PWD)/term/aliases $@
@@ -57,3 +62,6 @@ ssh: ~/.ssh/rc
 # ssh
 ~/.ssh/rc: 
 	ln -s $(PWD)/ssh/rc $@	
+
+~/.ssh/config: 
+	ln -s $(PWD)/ssh/config $@	
