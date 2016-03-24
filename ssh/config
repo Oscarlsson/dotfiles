@@ -29,3 +29,5 @@ Host git
 Host ghe
      HostName ghe.spotify.net
      User git
+
+UseRoaming no
