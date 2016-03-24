@@ -2,30 +2,23 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+if [ -d "$HOME/Dev/google-cloud-sdk/bin" ] ; then
+  PATH="$PATH:$HOME/Dev/google-cloud-sdk/bin"
+fi
+
 if [ -d "$HOME/.cabal/bin" ] ; then
   PATH="$PATH:$HOME/.cabal/bin"
 fi
 
+if [ -d "$HOME/anaconda" ] ; then
+  PATH="$HOME/anaconda/bin:$PATH"
+fi
 
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=100000
-HISTFILESIZE=10000
-
-# share history
-export PROMPT_COMMAND="history -a; history -n"
 
  #check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -102,7 +95,7 @@ fi
 if [ -f ~/.aliases ]; then 
     source ~/.aliases
 else
-    print "Not found"
+    print "No aliases found"
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -140,5 +133,18 @@ complete -F _snakebite_complete avro-read
 if [[ -f $HOME/.ssh/config ]]; then
         complete -W "$(grep '^Host ' $HOME/.ssh/config | sort -u | sed 's/^Host //')" ssh autossh mosh
 fi
+
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+# append to the history file, don't overwrite it
+shopt -s histappend
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=100000
+HISTFILESIZE=10000
+# share history
+export PROMPT_COMMAND="history -a; history -n"
+
 
 source ~/.theme.bash

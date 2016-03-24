@@ -27,6 +27,12 @@ set showcmd
 Bundle 'gmarik/vundle'
 
 " Features
+Plugin 'airblade/vim-gitgutter'
+Plugin 'pangloss/vim-javascript'
+Plugin 'einars/js-beautify'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'valloric/MatchTagAlways'
+Plugin 'nvie/vim-flake8'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
@@ -46,6 +52,7 @@ colorscheme solarized
 
 
 " Config
+filetype plugin indent on
 set smartcase
 set tabstop=2
 set shiftwidth=2
@@ -71,8 +78,9 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 au BufNewFile,BufRead *.hql set filetype=sql
 
 " Syntastic
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['java', 'python'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['java'] }
 let g:syntastic_check_on_open=1
+let g:syntastic_full_redraw=0
 let g:syntastic_enable_signs=1
 
 " Markdown
@@ -93,3 +101,13 @@ let g:NERDTreeDirArrows=0
 
 " airline
 let g:airline_powerline_fonts=1
+
+" whitespace
+nmap <silent> <leader>s :set nolist!<CR>
+
+" backspace
+set backspace=indent,eol,start
+
+" show when going over column 101
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%101v.\+/

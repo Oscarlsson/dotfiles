@@ -130,7 +130,9 @@ export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/
 export LANG="en_US.utf8"
 
 # Solarized dircolos
-eval `dircolors ~/.dircolors`
+if [ -f ~/.dircolors ] && [ -x /usr/bin/dircolors ]; then
+  eval `dircolors ~/.dircolors`
+fi
 
 export TERM="xterm-256color"
 [ -n "$TMUX" ] && export TERM=screen-256color

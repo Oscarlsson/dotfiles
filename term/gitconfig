@@ -13,6 +13,8 @@
     untracked = cyan
 [pull]
     default = current
+[push]
+	default = matching
 [branch]
     autosetuprebase = always
 [alias]
