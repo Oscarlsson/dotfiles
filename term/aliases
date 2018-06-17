@@ -9,10 +9,11 @@ alias ep='export PYTHONPATH="."'
 #store if hop-ssh needed
 #alias sshdev='ssh -A -t XX ssh -Y -o ConnectTimeout=0 -o TCPKeepAlive=yes -o ServerAliveInterval=2 -A dev.server'
 
+alias vim='/usr/local/Cellar/vim/8.0.0717/bin/vim'
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alFG'
+alias la='ls -AG'
+alias l='ls -CFG'
 #
 # apt
 alias agi='sudo apt-get install'

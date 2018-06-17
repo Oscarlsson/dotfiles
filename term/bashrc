@@ -146,5 +146,11 @@ HISTFILESIZE=10000
 # share history
 export PROMPT_COMMAND="history -a; history -n"
 
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
 
 source ~/.theme.bash
+
+# added by Anaconda2 4.4.0 installer
+export PATH="/Users/ocarlsson/anaconda/bin:$PATH"

@@ -1,5 +1,5 @@
 set nocompatible
-
+set encoding=utf-8
 " Enable Vundle
 filetype off
 set rtp+=~/.vim/bundle/vundle
