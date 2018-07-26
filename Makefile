@@ -2,11 +2,17 @@ all: ycm term git xmonad
 box: ycm term git ~/.tmux.conf
 ycm: vim ~/.vim/bundle/YouCompleteMe
 vim: ~/.vimrc ~/.vim/bundle/vundle ~/.vim/bundle/install
-term: ~/.zshrc ~/.bashrc ~/.aliases  ~/.xsession ~/.oh-my-zsh ~/.dircolors ssh ~/.theme.bash git
+term: ~/.zshrc ~/.bashrc ~/.aliases  ~/.xsession ~/.oh-my-zsh ~/.dircolors ssh ~/.theme.bash git ~/.tmux.conf
 xmonad: ~/.xmonad 
 xmodmap: ~/.Xmodmap
 git: ~/.gitconfig
 ssh: ~/.ssh/rc ~/.ssh/config
+
+
+# add brew section
+# brew reinstall vim --with-python@2
+# brew link --overwrite vim 
+
 
 ~/.oh-my-zsh:
 	ln -s $(PWD)/oh-my-zsh $@

@@ -1,1 +1,5 @@
 UseRoaming no
+Host *
+   AddKeysToAgent yes
+   IdentityFile ~/.ssh/id_rsa
+   UseKeychain yes

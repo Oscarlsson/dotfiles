@@ -137,20 +137,25 @@ fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoredups:erasedups
 # append to the history file, don't overwrite it
 shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=100000
-HISTFILESIZE=10000
+export HISTSIZE=100000
+export HISTFILESIZE=10000
 # share history
-export PROMPT_COMMAND="history -a; history -n"
+#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export HISTFILE=$HOME/.bash_history
+export SHELL_SESSION_HISTORY=0
 
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
 
 source ~/.theme.bash
 
 # added by Anaconda2 4.4.0 installer
-export PATH="/Users/ocarlsson/anaconda/bin:$PATH"
+export PATH=$HOME"/anaconda2/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/oscarcarlsson/Downloads/google-cloud-sdk/path.bash.inc' ]; then source '/Users/oscarcarlsson/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/oscarcarlsson/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/oscarcarlsson/Downloads/google-cloud-sdk/completion.bash.inc'; fi

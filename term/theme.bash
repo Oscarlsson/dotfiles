@@ -42,3 +42,4 @@ ${bg_black}  $(echo '$')${normal} "
 }
 
 PROMPT_COMMAND=prompt_command
+PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
