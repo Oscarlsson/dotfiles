@@ -141,8 +141,8 @@ export HISTCONTROL=ignoredups:erasedups
 # append to the history file, don't overwrite it
 shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE=100000
-export HISTFILESIZE=10000
+export HISTSIZE=10000000
+export HISTFILESIZE=1000000
 # share history
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export HISTFILE=$HOME/.bash_history
@@ -159,3 +159,5 @@ if [ -f '/Users/oscarcarlsson/Downloads/google-cloud-sdk/path.bash.inc' ]; then 
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/oscarcarlsson/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/oscarcarlsson/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`

@@ -27,19 +27,19 @@ set showcmd
 Bundle 'gmarik/vundle'
 
 " Features
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'einars/js-beautify'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'valloric/MatchTagAlways'
-Plugin 'nvie/vim-flake8'
+" Plugin 'nvie/vim-flake8'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'godlygeek/tabular'
 Bundle 'Raimondi/delimitMate'
-Bundle 'bling/vim-airline'
+" Bundle 'bling/vim-airline'
 
 " Colorscheme
 Bundle 'altercation/vim-colors-solarized'
