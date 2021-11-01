@@ -10,7 +10,7 @@ alias ep='export PYTHONPATH="."'
 #alias sshdev='ssh -A -t XX ssh -Y -o ConnectTimeout=0 -o TCPKeepAlive=yes -o ServerAliveInterval=2 -A dev.server'
 
 #alias vim='/usr/local/Cellar/vim/8.0.0717/bin/vim'
-alias vim='/usr/local/Cellar/vim/8.1.0100_2/bin/vim'
+#alias vim='/usr/local/Cellar/vim/8.1.0100_2/bin/vim'
 # some more ls aliases
 alias ll='ls -alFG'
 alias la='ls -AG'

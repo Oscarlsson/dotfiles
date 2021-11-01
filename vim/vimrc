@@ -1,3 +1,4 @@
+set nomodeline " hacker attack
 set nocompatible
 set encoding=utf-8
 " Enable Vundle

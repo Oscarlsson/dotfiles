@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+#[[ -s ~/.bashrc ]] && . ~/.bashrc
+
 if [ -d "$HOME/Dev/google-cloud-sdk/bin" ] ; then
   PATH="$PATH:$HOME/Dev/google-cloud-sdk/bin"
 fi
@@ -109,45 +111,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-_snakebite_complete()
-{
-    local cur prev opts
-    COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
-    local IFS=$'\t\n'
-    if [[ $cur != /* ]] ; then
-        cur="/user/$(whoami)/$cur"
-    fi
-    last_root=$(echo $cur | grep -o "^/\([^/]*/\)*")
-    opts=$(snakebite complete $last_root)
-     if [[ ${cur} == * ]]; then
-        COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
-        [[ $COMPREPLY = */ ]] && compopt -o nospace
-        return 0
-    fi
-}
-complete -F _snakebite_complete avro-read
-
 # SSH-config completion
 if [[ -f $HOME/.ssh/config ]]; then
         complete -W "$(grep '^Host ' $HOME/.ssh/config | sort -u | sed 's/^Host //')" ssh autossh mosh
 fi
-
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-export HISTCONTROL=ignoredups:erasedups
-# append to the history file, don't overwrite it
-shopt -s histappend
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTSIZE=10000000
-export HISTFILESIZE=1000000
-# share history
-#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-export HISTFILE=$HOME/.bash_history
-export SHELL_SESSION_HISTORY=0
-
 
 source ~/.theme.bash
 
@@ -160,4 +127,51 @@ if [ -f '/Users/oscarcarlsson/Downloads/google-cloud-sdk/path.bash.inc' ]; then 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/oscarcarlsson/Downloads/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/oscarcarlsson/Downloads/google-cloud-sdk/completion.bash.inc'; fi
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+#export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_191.jdk/Contents/Home/
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+export HISTCONTROL=ignoredups:erasedups
+
+# append to the history file, don't overwrite it
+#shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+export HISTSIZE=
+export HISTFILESIZE=
+
+# share history
+#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export HISTFILE=$HOME/eternal_bash_history
+
+# Single history between terminals
+export SHELL_SESSION_HISTORY=0
+export HISTTIMEFORMAT="[%F %T] "
+
+# Force write after each command
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/oscarcarlsson/anaconda2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/oscarcarlsson/anaconda2/etc/profile.d/conda.sh" ]; then
+        . "/Users/oscarcarlsson/anaconda2/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/oscarcarlsson/anaconda2/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# Autoload Stratus environment variables
+[ -f "${HOME}/.stratus_env" ] && source "${HOME}/.stratus_env" && export $(grep -v '^#' "${HOME}/.stratus_env" | xargs)
