@@ -97,21 +97,25 @@ if [ -f ~/.aliases ]; then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/lad/Dev/google-cloud-sdk/path.bash.inc'
+if [ -f '/Users/oscarlsson/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oscarlsson/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-source '/Users/lad/Dev/google-cloud-sdk/completion.bash.inc'
+if [ -f '/Users/oscarlsson/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/oscarlsson/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export DBT_PROFILES_DIR="config"
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/oscarcarlsson/anaconda2/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/oscarlsson/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/oscarcarlsson/anaconda2/etc/profile.d/conda.sh" ]; then
-        . "/Users/oscarcarlsson/anaconda2/etc/profile.d/conda.sh"
+    if [ -f "/Users/oscarlsson/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/oscarlsson/opt/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/oscarcarlsson/anaconda2/bin:$PATH"
+        export PATH="/Users/oscarlsson/opt/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
