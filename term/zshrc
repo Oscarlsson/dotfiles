@@ -1,49 +1,5 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="blinks"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
 # Uncomment following line if you want to disable command autocorrection
 DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
-
 
 alias which='nocorrect which'
 
@@ -64,56 +20,7 @@ setopt EXTENDED_HISTORY
 # Share hist between shells
 setopt SHARE_HISTORY
 
-## Vim mode in terminal
-#bindkey -v
-## keybindings - Behave properly
-#bindkey -M viins '^[OH' beginning-of-line
-#bindkey -M viins '^[OF' end-of-line
-#bindkey -M viins '^r' history-incremental-search-backward
-#bindkey -M vicmd '^r' history-incremental-search-backward
-#
-#bindkey -M vicmd "//" history-beginning-search-backward
-#bindkey -M vicmd "??" history-beginning-search-forward
-## Delete line
-#bindkey -M vicmd "q" push-line
-## Undo
-#bindkey -M vicmd 'u' undo
-#
-## Delete-button
-#bindkey '\e[3~' delete-char
-#bindkey -M viins '\C-i' complete-word
-#
-#
-#function zle-keymap-select {
-#    VIMODE="${${KEYMAP/vicmd/ M:command}/(main|viins)/}"
-#    zle reset-prompt
-#}
-#
-#zle -N zle-keymap-select
-#
 
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/lad/Dev/google-cloud-sdk/path.bash.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/Users/lad/Dev/google-cloud-sdk/completion.bash.inc'
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/oscarcarlsson/anaconda2/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/oscarcarlsson/anaconda2/etc/profile.d/conda.sh" ]; then
-        . "/Users/oscarcarlsson/anaconda2/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/oscarcarlsson/anaconda2/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
