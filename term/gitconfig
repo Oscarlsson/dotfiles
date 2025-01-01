@@ -1,6 +1,6 @@
 [user]
 	name = Oscar Carlsson
-  email = ocarlsson3@gmail.com
+	email = oscar@framer.com
 [core]
     editor = vim
 [color]
@@ -28,3 +28,8 @@
     br = branch
     diff = diff --word-diff
     dc = diff --cached
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
